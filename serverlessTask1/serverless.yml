@@ -1,0 +1,20 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: rakesh6401
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: serverlessTask1
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: python3.12
+
+plugins:
+  - serverless-offline
+
+functions:
+  sendEmail:
+    handler: handler.sendEmail
+    events:
+      - http:
+          path: send-email
+          method: post
